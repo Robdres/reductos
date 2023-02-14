@@ -115,6 +115,14 @@ fn compare(row1:&Vec<String>,row2:&Vec<String>) -> Vec<u8>{
     }
     x
 }
+
+fn metric(row1:&Vec<String>,row2:&Vec<String>) -> Vec<u8>{
+    let mut x:Vec<u8> = vec![];
+    for (i,j) in row1.into_iter().enumerate(){
+        if j == &row2[i] {x.push(0)} else {x.push(1)};
+    }
+    x
+}
 //much faster
 fn is_zero(buf: &Vec<u8>) -> bool {
     let (prefix, aligned, suffix) = unsafe { buf.align_to::<u128>() };
